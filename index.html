@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
             padding: 16px;
             border: 5px solid #2e0b59;
         }
+
         main {
             background-color: #FFFFFF;
             color: #183c63;
@@ -21,24 +23,78 @@
             margin: 0 auto;
             padding: 16px;
         }
+        article{
+            display: flex;
+        }
+
         img {
             max-width: 80px;
             height: 80px;
         }
+
+        .artigo-autor {
+            font-weight: bold;
+        }
     </style>
 </head>
+
 <body>
-     <header>
-    <h1>Meu blog tech</h1>
-    <p>Vou compartilhar conhecimentos sobre tecnologia e
-        programação</p>
+    <header>
+        <h1>Meu blog tech</h1>
+        <p>Vou compartilhar conhecimentos sobre tecnologia e
+            programação</p>
     </header>
     <main>
-        <img src="imagem-blog.png" alt="alt="Ícone de um blog de tecnologia e educação com notebook, livro aberto e capelo acadêmico em azul sobre fundo branco."">
-        <h2>Meu primeiro post</h2>
-        <P>por: Otavio nakai</P>
-        <p>Boas-vindas ao meu novo blog! aqui vou compartilhar dicas de programação e curiosidade da àrea de tecnologia.</p>
+        <article>
+
+            <img src="imagem-blog.png"
+                alt="Ícone de um blog de tecnologia e educação com notebook, livro aberto e capelo acadêmico em azul sobre fundo branco.">
+            <div>
+                <h2>Meu primeiro post</h2>
+                <p class="artigo-autor">por: Otavio nakai</p>
+                <p>Boas-vindas ao meu novo blog! aqui vou compartilhar dicas de programação e curiosidade da àrea de
+                    tecnologia.</p>
+                <button>❤️<span>0</span></button>
+                <button>😒<span>0</span></button>
+            </div>
+        </article>
+        <article>
+            <img src="imagem-blog.png"
+                alt="Ícone de um blog de tecnologia e educação com notebook, livro aberto e capelo acadêmico em azul sobre fundo branco.">
+            <div>
+                <h2>Meu segundo post</h2>
+                <p class="artigo-autor">por: Otavio nakai</p>
+                <p>Boas-vindas ao meu novo blog! aqui vou compartilhar dicas de programação e curiosidade da àrea de
+                    tecnologia.</p>
+                <button>❤️<span>0</span></button>
+                <button>😒<span>0</span></button>
+            </div>
+    </article>
     </main>
-    
+    <script>
+        const botoes = document.querySelectorAll("button");
+
+
+        botoes.forEach(function (botao) {
+            let curtiu = false;
+            botao.addEventListener("click", botaoClicado);
+            function botaoClicado() {
+                console.log("botão clicado");
+                let texto = botao.querySelector("span");
+                if (curtiu === false) {
+                texto.textContent++;
+                curtiu = true;
+                } else {
+                    texto.textContent--;
+                    curtiu = false;
+                }
+            }
+        });
+
+
+
+
+    </script>
 </body>
+
 </html>
